@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+    <title>MyKlinTown – Sondage entreprises</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { background: #f0fdf4; font-family: 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif; padding: 2rem 1rem; line-height: 1.5; }
+        .container { max-width: 900px; margin: 0 auto; background: white; border-radius: 2rem; box-shadow: 0 20px 35px -12px rgba(0, 0, 0, 0.1); overflow: hidden; border: 1px solid #cbd5e1; }
+        .header { background: #2E7D32; padding: 1.5rem 2rem; text-align: center; color: white; }
+        .header h1 { font-size: 2rem; letter-spacing: -0.5px; font-weight: 700; }
+        .header p { margin-top: 0.5rem; opacity: 0.9; }
+        form { padding: 2rem; }
+        .question-block { margin-bottom: 2rem; border-bottom: 1px solid #e2e8f0; padding-bottom: 1.5rem; }
+        .question-label { font-weight: 600; font-size: 1.1rem; margin-bottom: 0.75rem; display: block; color: #1e293b; }
+        .options { display: flex; flex-wrap: wrap; gap: 1rem; margin-top: 0.5rem; }
+        .option-item { display: flex; align-items: center; gap: 0.5rem; background: #f8fafc; padding: 0.5rem 1rem; border-radius: 2rem; border: 1px solid #cbd5e1; }
+        .option-item input { width: 1.2rem; height: 1.2rem; accent-color: #2E7D32; }
+        .checkbox-group { display: flex; flex-wrap: wrap; gap: 0.8rem; margin-top: 0.5rem; }
+        .checkbox-group label { display: flex; align-items: center; gap: 0.4rem; background: #f1f5f9; padding: 0.4rem 1rem; border-radius: 2rem; }
+        input[type="text"], input[type="email"], input[type="number"] { width: 100%; max-width: 400px; padding: 0.6rem 1rem; border-radius: 1.5rem; border: 1px solid #cbd5e1; font-size: 1rem; }
+        button { background: #2E7D32; color: white; border: none; padding: 0.8rem 2rem; font-size: 1.1rem; font-weight: bold; border-radius: 3rem; cursor: pointer; transition: background 0.2s; margin-top: 1rem; }
+        button:hover { background: #1b5e20; }
+        .footer { background: #f1f5f9; text-align: center; padding: 1rem; font-size: 0.8rem; color: #475569; }
+        @media (max-width: 640px) { .options { flex-direction: column; gap: 0.5rem; } .option-item { width: 100%; } .checkbox-group { flex-direction: column; } }
+    </style>
+</head>
+<body>
+<div class="container">
+    <div class="header">
+        <h1>🏢 MyKlinTown</h1>
+        <p>Questionnaire entreprises – Gestion professionnelle des déchets</p>
+    </div>
+
+    <!-- Formulaire vers Formspree (remplacer YOUR_FORM_ID) -->
+    <form action="https://formspree.io/f/xlgaorzl" method="POST">
+
+        <!-- ========== 1. Informations sur l'entreprise ========== -->
+        <div class="question-block">
+            <label class="question-label">1. Secteur d'activité</label>
+            <div class="options">
+                <label class="option-item"><input type="radio" name="secteur" value="Restauration / Hôtellerie"> Restauration / Hôtellerie</label>
+                <label class="option-item"><input type="radio" name="secteur" value="Commerce de détail"> Commerce de détail</label>
+                <label class="option-item"><input type="radio" name="secteur" value="Bureau / Services"> Bureau / Services</label>
+                <label class="option-item"><input type="radio" name="secteur" value="Industrie / Fabrication"> Industrie / Fabrication</label>
+                <label class="option-item"><input type="radio" name="secteur" value="Artisanat"> Artisanat</label>
+                <label class="option-item"><input type="radio" name="secteur" value="Santé"> Santé</label>
+                <label class="option-item"><input type="radio" name="secteur" value="Autre"> Autre : <input type="text" name="secteur_autre" placeholder="précisez" style="width:120px"></label>
+            </div>
+        </div>
+
+        <div class="question-block">
+            <label class="question-label">2. Nombre d'employés</label>
+            <div class="options">
+                <label class="option-item"><input type="radio" name="employes" value="1–5"> 1–5</label>
+                <label class="option-item"><input type="radio" name="employes" value="6–20"> 6–20</label>
+                <label class="option-item"><input type="radio" name="employes" value="21–50"> 21–50</label>
+                <label class="option-item"><input type="radio" name="employes" value="51–200"> 51–200</label>
+                <label class="option-item"><input type="radio" name="employes" value="Plus de 200"> Plus de 200</label>
+            </div>
+        </div>
+
+        <div class="question-block">
+            <label class="question-label">3. Commune et quartier d'implantation</label>
+            <input type="text" name="commune" placeholder="Commune (ex: Yaoundé 3, Douala 5)" style="margin-bottom: 0.5rem;">
+            <input type="text" name="quartier" placeholder="Quartier (ex: Mvog-Mbi, Bali)">
+        </div>
+
+        <div class="question-block">
+            <label class="question-label">4. Disposez-vous d'un contrat de collecte actuellement ?</label>
+            <div class="options">
+                <label class="option-item"><input type="radio" name="contrat" value="Oui, HYSACAM"> Oui, avec HYSACAM</label>
+                <label class="option-item"><input type="radio" name="contrat" value="Oui, prestataire privé"> Oui, prestataire privé</label>
+                <label class="option-item"><input type="radio" name="contrat" value="Non, gestion interne"> Non, gestion interne</label>
+                <label class="option-item"><input type="radio" name="contrat" value="Non, pas de solution régulière"> Non, pas de solution régulière</label>
+            </div>
+        </div>
+
+        <!-- ========== 2. Volume et types de déchets ========== -->
+        <div class="question-block">
+            <label class="question-label">5. Volume hebdomadaire de déchets (litres ou kg)</label>
+            <input type="text" name="volume" placeholder="Ex: 200 litres, 150 kg">
+        </div>
+
+        <div class="question-block">
+            <label class="question-label">6. Types de déchets majoritaires (plusieurs choix)</label>
+            <div class="checkbox-group">
+                <label><input type="checkbox" name="dechets" value="Organiques (restes alimentaires)"> Organiques</label>
+                <label><input type="checkbox" name="dechets" value="Cartons / papiers"> Cartons / papiers</label>
+                <label><input type="checkbox" name="dechets" value="Plastiques"> Plastiques</label>
+                <label><input type="checkbox" name="dechets" value="Verre"> Verre</label>
+                <label><input type="checkbox" name="dechets" value="Métaux"> Métaux</label>
+                <label><input type="checkbox" name="dechets" value="Électroniques"> Électroniques</label>
+                <label><input type="checkbox" name="dechets" value="Dangereux"> Dangereux</label>
+                <label><input type="checkbox" name="dechets" value="Autre"> Autre : <input type="text" name="dechets_autre" placeholder="précisez" style="width:120px"></label>
+            </div>
+        </div>
+
+        <div class="question-block">
+            <label class="question-label">7. Fréquence actuelle de collecte</label>
+            <div class="options">
+                <label class="option-item"><input type="radio" name="frequence_collecte" value="Tous les jours"> Tous les jours</label>
+                <label class="option-item"><input type="radio" name="frequence_collecte" value="2–3 fois par semaine"> 2–3 fois/semaine</label>
+                <label class="option-item"><input type="radio" name="frequence_collecte" value="Une fois par semaine"> 1 fois/semaine</label>
+                <label class="option-item"><input type="radio" name="frequence_collecte" value="Moins d'une fois par semaine"> Moins d'1 fois/semaine</label>
+                <label class="option-item"><input type="radio" name="frequence_collecte" value="À la demande"> À la demande</label>
+            </div>
+        </div>
+
+        <div class="question-block">
+            <label class="question-label">8. Rencontrez-vous des débordements ou retards de collecte ?</label>
+            <div class="options">
+                <label class="option-item"><input type="radio" name="debordements" value="Très souvent"> Très souvent</label>
+                <label class="option-item"><input type="radio" name="debordements" value="Parfois"> Parfois</label>
+                <label class="option-item"><input type="radio" name="debordements" value="Rarement"> Rarement</label>
+                <label class="option-item"><input type="radio" name="debordements" value="Jamais"> Jamais</label>
+            </div>
+        </div>
+
+        <!-- ========== 3. Coûts et difficultés ========== -->
+        <div class="question-block">
+            <label class="question-label">9. Budget mensuel actuel pour la gestion des déchets (FCFA)</label>
+            <input type="number" name="budget" step="1000" placeholder="Ex: 50000">
+        </div>
+
+        <div class="question-block">
+            <label class="question-label">10. Principales difficultés rencontrées (plusieurs choix)</label>
+            <div class="checkbox-group">
+                <label><input type="checkbox" name="difficultes" value="Coût élevé"> Coût élevé</label>
+                <label><input type="checkbox" name="difficultes" value="Collecte irrégulière"> Collecte irrégulière</label>
+                <label><input type="checkbox" name="difficultes" value="Manque de bacs adaptés"> Manque de bacs</label>
+                <label><input type="checkbox" name="difficultes" value="Absence de tri sélectif"> Absence de tri</label>
+                <label><input type="checkbox" name="difficultes" value="Problèmes d'hygiène / odeurs"> Hygiène / odeurs</label>
+                <label><input type="checkbox" name="difficultes" value="Refus de certains déchets"> Refus de certains déchets</label>
+                <label><input type="checkbox" name="difficultes" value="Autre"> Autre : <input type="text" name="difficultes_autre" placeholder="précisez" style="width:120px"></label>
+            </div>
+        </div>
+
+        <div class="question-block">
+            <label class="question-label">11. Seriez-vous prêt à payer un supplément pour une collecte plus fiable et un suivi en temps réel ?</label>
+            <div class="options">
+                <label class="option-item"><input type="radio" name="supplement" value="Oui"> Oui</label>
+                <label class="option-item"><input type="radio" name="supplement" value="Peut-être, selon le prix"> Peut-être</label>
+                <label class="option-item"><input type="radio" name="supplement" value="Non"> Non</label>
+            </div>
+        </div>
+
+        <!-- ========== 4. Intérêt pour MyKlinTown Enterprise ========== -->
+        <div class="question-block">
+            <label class="question-label">12. Fonctionnalités qui vous intéressent (plusieurs choix)</label>
+            <div class="checkbox-group">
+                <label><input type="checkbox" name="fonctions" value="Visualiser l'état de remplissage des bacs"> Visualiser l'état des bacs</label>
+                <label><input type="checkbox" name="fonctions" value="Planifier et suivre les collectes"> Planifier les collectes</label>
+                <label><input type="checkbox" name="fonctions" value="Gérer les demandes de recyclage"> Gérer les demandes de recyclage</label>
+                <label><input type="checkbox" name="fonctions" value="Vendre des déchets recyclables (marketplace)"> Vendre des déchets recyclables</label>
+                <label><input type="checkbox" name="fonctions" value="Acheter des produits recyclés"> Acheter des produits recyclés</label>
+            </div>
+        </div>
+
+        <div class="question-block">
+            <label class="question-label">13. Niveau d'intérêt pour une telle solution (de 1 à 5)</label>
+            <div class="options">
+                <label class="option-item"><input type="radio" name="interet_note" value="1"> 1 – Pas du tout</label>
+                <label class="option-item"><input type="radio" name="interet_note" value="2"> 2 – Faible</label>
+                <label class="option-item"><input type="radio" name="interet_note" value="3"> 3 – Moyen</label>
+                <label class="option-item"><input type="radio" name="interet_note" value="4"> 4 – Élevé</label>
+                <label class="option-item"><input type="radio" name="interet_note" value="5"> 5 – Très élevé</label>
+            </div>
+        </div>
+
+        <div class="question-block">
+            <label class="question-label">14. Quelles fonctionnalités seraient les plus utiles ? (texte libre)</label>
+            <input type="text" name="fonctions_utiles" style="width:100%" placeholder="Votre réponse">
+        </div>
+
+        <!-- ========== 5. Recontact ========== -->
+        <div class="question-block">
+            <label class="question-label">15. Acceptez-vous d'être recontacté pour une démonstration ?</label>
+            <div class="options">
+                <label class="option-item"><input type="radio" name="recontact" value="Oui"> Oui, email : <input type="email" name="email" placeholder="email" style="width:180px"> Tél : <input type="text" name="telephone" placeholder="téléphone" style="width:120px"></label>
+                <label class="option-item"><input type="radio" name="recontact" value="Non"> Non</label>
+            </div>
+        </div>
+
+        <div class="question-block">
+            <label class="question-label">16. Suggestions pour améliorer la gestion des déchets dans votre zone d'activité ?</label>
+            <input type="text" name="suggestions" style="width:100%" placeholder="Vos idées...">
+        </div>
+
+        <div style="text-align: center;">
+            <button type="submit">Envoyer mes réponses ✅</button>
+        </div>
+    </form>
+    <div class="footer">
+        MyKlinTown – Ensemble pour une gestion responsable des déchets professionnels.<br>
+        Vos données sont confidentielles.
+    </div>
+</div>
+</body>
+</html>
